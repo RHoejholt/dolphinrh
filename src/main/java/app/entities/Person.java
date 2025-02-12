@@ -6,7 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -31,6 +33,9 @@ public class Person
         this.name = name;
     }
 
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<Note> notes = new ArrayList<>();  // Can be empty
+
     // Relationer 1:m
 
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
@@ -53,6 +58,15 @@ public class Person
         if (fee != null)
         {
             fee.setPerson(this);
+        }
+    }
+
+    public void addNote (Note note)
+    {
+        this.notes.add(note);
+        if (note != null)
+        {
+            note.setPerson(this);
         }
     }
 

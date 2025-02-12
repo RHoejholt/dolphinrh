@@ -2,6 +2,7 @@ package app;
 
 import app.config.HibernateConfig;
 import app.entities.Fee;
+import app.entities.Note;
 import app.entities.Person;
 import app.entities.PersonDetail;
 import jakarta.persistence.EntityManager;
@@ -24,7 +25,12 @@ public class Main {
             p1.addFee(f1);
             p1.addFee(f2);
 
-            em.getTransaction().begin();
+            Note n1 = new Note("bad guy", "Rasmus", p1);
+            Note n2 = new Note("stinky dude", "Casper", p1);
+
+            p1.addNote(n1);
+            p1.addNote(n2);
+
             em.persist(p1);
             em.getTransaction().commit();
             System.out.println(p1.toString());

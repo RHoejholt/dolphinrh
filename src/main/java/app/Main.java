@@ -33,7 +33,7 @@ public class Main {
 
             em.persist(p1);
             em.getTransaction().commit();
-            System.out.println(p1.toString());
+            System.out.println(p1);
         } finally {
             emf.close();
         }

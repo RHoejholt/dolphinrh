@@ -33,7 +33,7 @@ public class Person
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     private List<Note> notes = new ArrayList<>();  // Can be empty
 
     // Relationer 1:m

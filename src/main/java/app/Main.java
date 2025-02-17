@@ -25,12 +25,12 @@ public class Main {
             p1.addFee(f1);
             p1.addFee(f2);
 
-            Note n1 = new Note("bad guy", "Rasmus", p1);
-            Note n2 = new Note("stinky dude", "Casper", p1);
+            Note n1 = new Note("bad guy", "Rasmus");
+            Note n2 = new Note("stinky dude", "Casper");
 
             p1.addNote(n1);
             p1.addNote(n2);
-
+            em.getTransaction().begin();
             em.persist(p1);
             em.getTransaction().commit();
             System.out.println(p1);

@@ -14,8 +14,8 @@ import lombok.ToString;
 public class PersonDetail
 {
     @Id
-    @GeneratedValue
-    private Integer id;
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer Id;
     private String Address;
     private int zip;
     private String city;
